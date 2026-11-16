@@ -1,11 +1,7 @@
+#include "lexer.hpp"
 #include <print>
-#include <string>
-
-void test(const std::string& prompt) {
-    std::println("{}", prompt);
-}
 
 int main() {
-    test("test");
+    std::println("{}", tokenize("12+3").size());
     return 0;
 }
