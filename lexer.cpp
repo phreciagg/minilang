@@ -15,6 +15,24 @@ std::vector<Token> tokenize(const std::string& text) {
             std::string number = text.substr(start, i - start);
             Token token{TokenType::Number, number};
             tokens.push_back(token);
+        } else if (text[i] == '+') {
+            tokens.push_back(Token{TokenType::Plus, "+"});
+            ++i;
+        } else if (text[i] == '-') {
+            tokens.push_back(Token{TokenType::Minus, "-"});
+            ++i;
+        } else if (text[i] == '*') {
+            tokens.push_back(Token{TokenType::Multiplication, "*"});
+            ++i;
+        } else if (text[i] == '/') {
+            tokens.push_back(Token{TokenType::Division, "/"});
+            ++i;
+        } else if (text[i] == '(') {
+            tokens.push_back(Token{TokenType::LeftParenthesis, "("});
+            ++i;
+        } else if (text[i] == ')') {
+            tokens.push_back(Token{TokenType::RightParenthesis, ")"});
+            ++i;
         } else {
             ++i;
         }
