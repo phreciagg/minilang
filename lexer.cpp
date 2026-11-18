@@ -2,6 +2,11 @@
 
 #include <cctype>
 
+void add_token(std::vector<Token>& tokens, TokenType tokentype,
+               const std::string& str) {
+    tokens.push_back(Token{tokentype, str});
+}
+
 std::vector<Token> tokenize(const std::string& text) {
     std::vector<Token> tokens{};
     std::size_t i{0};
@@ -16,22 +21,22 @@ std::vector<Token> tokenize(const std::string& text) {
             Token token{TokenType::Number, number};
             tokens.push_back(token);
         } else if (text[i] == '+') {
-            tokens.push_back(Token{TokenType::Plus, "+"});
+            add_token(tokens, TokenType::Plus, "+");
             ++i;
         } else if (text[i] == '-') {
-            tokens.push_back(Token{TokenType::Minus, "-"});
+            add_token(tokens, TokenType::Minus, "-");
             ++i;
         } else if (text[i] == '*') {
-            tokens.push_back(Token{TokenType::Multiplication, "*"});
+            add_token(tokens, TokenType::Multiplication, "*");
             ++i;
         } else if (text[i] == '/') {
-            tokens.push_back(Token{TokenType::Division, "/"});
+            add_token(tokens, TokenType::Division, "/");
             ++i;
         } else if (text[i] == '(') {
-            tokens.push_back(Token{TokenType::LeftParenthesis, "("});
+            add_token(tokens, TokenType::LeftParenthesis, "(");
             ++i;
         } else if (text[i] == ')') {
-            tokens.push_back(Token{TokenType::RightParenthesis, ")"});
+            add_token(tokens, TokenType::RightParenthesis, ")");
             ++i;
         } else {
             ++i;
