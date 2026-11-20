@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-inline void add_token(std::vector<Token>& tokens, TokenType tokentype,
+static void add_token(std::vector<Token>& tokens, TokenType tokentype,
                       const std::string& str) {
     tokens.push_back(Token{tokentype, str});
 }
