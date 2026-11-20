@@ -5,13 +5,19 @@
 #include <vector>
 
 int main() {
-    std::cout << "Enter string: \n > ";
     std::string line{};
-    std::getline(std::cin, line);
-    std::vector<Token> tokens = tokenize(line);
-    std::println("Read: [{}], length: {}", line, line.size());
-    for (const auto& token : tokens) {
-        std::println("token.text: {}", token.text);
+    std::println("Type 'exit' to exit the program");
+    std::cout << "> ";
+    while (std::getline(std::cin, line)) {
+        if (line == "exit") {
+            break;
+        }
+        std::vector<Token> tokens = tokenize(line);
+        std::println("Read: [{}], length: {}", line, line.size());
+        for (const auto& token : tokens) {
+            std::println("token.text: {}", token.text);
+        }
+        std::cout << "> ";
     }
     return 0;
 }
