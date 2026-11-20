@@ -1,5 +1,6 @@
 #include "lexer.hpp"
 #include <print>
+#include <string>
 #include <vector>
 
 int main() {

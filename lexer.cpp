@@ -1,9 +1,11 @@
 #include "lexer.hpp"
 
 #include <cctype>
+#include <string>
+#include <vector>
 
-void add_token(std::vector<Token>& tokens, TokenType tokentype,
-               const std::string& str) {
+inline void add_token(std::vector<Token>& tokens, TokenType tokentype,
+                      const std::string& str) {
     tokens.push_back(Token{tokentype, str});
 }
 
